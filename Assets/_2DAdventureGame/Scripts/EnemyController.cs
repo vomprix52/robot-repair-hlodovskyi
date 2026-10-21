@@ -5,6 +5,7 @@ public class EnemyController : MonoBehaviour
     public float speed;
     public bool vertical;
     public float changeTime = 3.0f;
+    public float axisChangeChance = 0.25f;
 
     Rigidbody2D rigidbody2d;
     Animator animator;
@@ -27,6 +28,11 @@ public class EnemyController : MonoBehaviour
         {
             direction = -direction;
             timer = changeTime;
+
+            if (Random.value < axisChangeChance)
+            {
+                vertical = !vertical;
+            }
         }
     }
 
