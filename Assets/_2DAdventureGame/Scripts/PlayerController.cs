@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject projectilePrefab;
     public InputAction LaunchAction;
+    public float launchCooldown = 0.5f;
+    float launchTimer;
 
     void Start()
     {
@@ -55,9 +57,15 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (LaunchAction.WasPressedThisFrame())
+        if (launchTimer > 0)
+        {
+            launchTimer -= Time.deltaTime;
+        }
+
+        if (LaunchAction.WasPressedThisFrame() && launchTimer <= 0)
         {
             Launch();
+            launchTimer = launchCooldown;
         }
     }
 
