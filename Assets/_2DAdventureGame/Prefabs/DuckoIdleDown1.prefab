@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 6297422346392893931}
   - component: {fileID: 4962515151365292778}
   - component: {fileID: 2745251359915629051}
-  m_Layer: 0
+  - component: {fileID: 263850107611046880}
+  m_Layer: 6
   m_Name: DuckoIdleDown1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,6 +200,27 @@ MonoBehaviour:
   speed: 3
   maxHealth: 5
   timeInvincible: 2
+  projectilePrefab: {fileID: 2852210852129246881, guid: 1b5de09920eef3a4b8cffd80c750daa7,
+    type: 3}
+  LaunchAction:
+    m_Name: Launch
+    m_Type: 1
+    m_ExpectedControlType: 
+    m_Id: 7563fe57-f889-4469-b8f8-164f133fbbc7
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 5515e7b6-ddb9-422c-b15c-d8decd0df443
+      m_Path: <Keyboard>/c
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Launch
+      m_Flags: 0
+    m_Flags: 0
+    m_Priority: 0
+  launchCooldown: 0.5
 --- !u!50 &4962515151365292778
 Rigidbody2D:
   serializedVersion: 5
@@ -272,3 +294,25 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.6484258, y: 0.43186727}
   m_EdgeRadius: 0
+--- !u!95 &263850107611046880
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4801043203114483419}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 34d36e1bead33a942930d6f3d41aa8fa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
