@@ -78,5 +78,6 @@ public class EnemyController : MonoBehaviour
         broken = false;
         rigidbody2d.simulated = false;
         animator.SetTrigger("Fixed");
+        UIHandler.instance.AddFixedEnemy();
     }
 }

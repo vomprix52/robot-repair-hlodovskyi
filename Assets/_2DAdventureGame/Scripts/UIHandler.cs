@@ -14,6 +14,10 @@ public class UIHandler : MonoBehaviour
     private VisualElement m_WinScreen;
     private VisualElement m_LoseScreen;
 
+    private Label m_FixedCounter;
+    private int m_FixedCount;
+    private int m_EnemyCount;
+
     private void Awake()
     {
         instance = this;
@@ -31,6 +35,10 @@ public class UIHandler : MonoBehaviour
 
         m_LoseScreen = uiDocument.rootVisualElement.Q<VisualElement>("LoseScreenContainer");
         m_WinScreen = uiDocument.rootVisualElement.Q<VisualElement>("WinScreenContainer");
+
+        m_FixedCounter = uiDocument.rootVisualElement.Q<Label>("FixedCounter");
+        m_EnemyCount = FindObjectsByType<EnemyController>(FindObjectsSortMode.None).Length;
+        UpdateFixedCounter();
     }
 
     public void SetHealthValue(float percentage)
@@ -64,5 +72,16 @@ public class UIHandler : MonoBehaviour
     public void DisplayLoseScreen()
     {
         m_LoseScreen.style.opacity = 1.0f;
+    }
+
+    public void AddFixedEnemy()
+    {
+        m_FixedCount++;
+        UpdateFixedCounter();
+    }
+
+    void UpdateFixedCounter()
+    {
+        m_FixedCounter.text = "Полагоджено " + m_FixedCount + " / " + m_EnemyCount;
     }
 }
