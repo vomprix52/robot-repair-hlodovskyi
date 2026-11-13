@@ -2,7 +2,10 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    public float range = 4.0f;
+
     Rigidbody2D rigidbody2d;
+    Vector2 launchPosition;
 
     void Awake()
     {
@@ -15,10 +18,16 @@ public class Projectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if (Vector2.Distance(transform.position, launchPosition) > range)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void Launch(Vector2 direction, float force)
     {
+        launchPosition = transform.position;
         rigidbody2d.AddForce(direction * force);
     }
 

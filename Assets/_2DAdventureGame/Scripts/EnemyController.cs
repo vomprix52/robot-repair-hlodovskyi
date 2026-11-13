@@ -6,12 +6,17 @@ public class EnemyController : MonoBehaviour
     public bool vertical;
     public float changeTime = 3.0f;
     public float axisChangeChance = 0.25f;
+    public int hitsToFix = 1;
 
     Rigidbody2D rigidbody2d;
     Animator animator;
     float timer;
     int direction = 1;
     bool broken = true;
+    int hitsLeft;
+    SpriteRenderer spriteRenderer;
+    Color baseColor;
+    float flashTimer;
 
     public bool isBroken { get { return broken; } }
 
@@ -20,10 +25,22 @@ public class EnemyController : MonoBehaviour
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         timer = changeTime;
+        hitsLeft = hitsToFix;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        baseColor = spriteRenderer.color;
     }
 
     void Update()
     {
+        if (flashTimer > 0)
+        {
+            flashTimer -= Time.deltaTime;
+            if (flashTimer <= 0)
+            {
+                spriteRenderer.color = baseColor;
+            }
+        }
+
         timer -= Time.deltaTime;
 
         if (timer < 0)
@@ -75,6 +92,15 @@ public class EnemyController : MonoBehaviour
 
     public void Fix()
     {
+        hitsLeft--;
+        if (hitsLeft > 0)
+        {
+            // Влучання зараховано, але ворог ще зламаний — коротко блимає
+            spriteRenderer.color = new Color(baseColor.r, baseColor.g, baseColor.b, 0.35f);
+            flashTimer = 0.15f;
+            return;
+        }
+
         broken = false;
         rigidbody2d.simulated = false;
         animator.SetTrigger("Fixed");

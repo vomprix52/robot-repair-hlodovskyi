@@ -220,7 +220,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
     m_Priority: 0
-  launchCooldown: 0.5
+  launchCooldown: 0.8
   TalkAction:
     m_Name: Talk
     m_Type: 1

@@ -180,10 +180,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5cc6f0b9777adf44bd5d880d84e1056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
-  speed: 1
+  speed: 2
   vertical: 1
-  changeTime: 3
+  changeTime: 1.5
   axisChangeChance: 0.25
+  hitsToFix: 2
 --- !u!95 &2403307718431471118
 Animator:
   serializedVersion: 7
