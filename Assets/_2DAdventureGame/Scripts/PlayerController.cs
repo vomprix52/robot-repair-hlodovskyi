@@ -26,6 +26,13 @@ public class PlayerController : MonoBehaviour
     public InputAction TalkAction;
     private NonPlayerCharacter lastNonPlayerCharacter;
 
+    public AudioClip hitClip;
+    public AudioClip launchClip;
+    public Color healColor = new Color(0.5f, 1f, 0.5f);
+    AudioSource audioSource;
+    SpriteRenderer spriteRenderer;
+    float healFlashTimer;
+
     void Start()
     {
         MoveAction.Enable();
@@ -33,6 +40,8 @@ public class PlayerController : MonoBehaviour
         TalkAction.Enable();
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth;
     }
 
@@ -58,6 +67,21 @@ public class PlayerController : MonoBehaviour
             {
                 isInvincible = false;
             }
+        }
+
+        // Зелений спалах після аптечки, миготіння під час невразливості
+        if (healFlashTimer > 0)
+        {
+            healFlashTimer -= Time.deltaTime;
+            spriteRenderer.color = healColor;
+        }
+        else if (isInvincible)
+        {
+            spriteRenderer.color = Mathf.Repeat(damageCooldown, 0.2f) < 0.1f ? new Color(1f, 1f, 1f, 0.35f) : Color.white;
+        }
+        else
+        {
+            spriteRenderer.color = Color.white;
         }
 
         if (launchTimer > 0)
@@ -106,6 +130,12 @@ public class PlayerController : MonoBehaviour
             isInvincible = true;
             damageCooldown = timeInvincible;
             animator.SetTrigger("Hit");
+            PlaySound(hitClip);
+        }
+
+        if (amount > 0)
+        {
+            healFlashTimer = 0.3f;
         }
 
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
@@ -118,6 +148,15 @@ public class PlayerController : MonoBehaviour
         Projectile projectile = projectileObject.GetComponent<Projectile>();
         projectile.Launch(moveDirection, 300);
         animator.SetTrigger("Launch");
+        PlaySound(launchClip);
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        if (clip != null)
+        {
+            audioSource.PlayOneShot(clip);
+        }
     }
 
     void FindFriend()

@@ -7,6 +7,8 @@ public class EnemyController : MonoBehaviour
     public float changeTime = 3.0f;
     public float axisChangeChance = 0.25f;
     public int hitsToFix = 1;
+    public AudioClip hitClip;
+    public AudioClip fixedClip;
 
     Rigidbody2D rigidbody2d;
     Animator animator;
@@ -17,6 +19,7 @@ public class EnemyController : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Color baseColor;
     float flashTimer;
+    AudioSource audioSource;
 
     public bool isBroken { get { return broken; } }
 
@@ -28,6 +31,7 @@ public class EnemyController : MonoBehaviour
         hitsLeft = hitsToFix;
         spriteRenderer = GetComponent<SpriteRenderer>();
         baseColor = spriteRenderer.color;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -98,6 +102,7 @@ public class EnemyController : MonoBehaviour
             // Влучання зараховано, але ворог ще зламаний — коротко блимає
             spriteRenderer.color = new Color(baseColor.r, baseColor.g, baseColor.b, 0.35f);
             flashTimer = 0.15f;
+            PlaySound(hitClip);
             return;
         }
 
@@ -105,5 +110,14 @@ public class EnemyController : MonoBehaviour
         rigidbody2d.simulated = false;
         animator.SetTrigger("Fixed");
         UIHandler.instance.AddFixedEnemy();
+        PlaySound(fixedClip);
+    }
+
+    void PlaySound(AudioClip clip)
+    {
+        if (audioSource != null && clip != null)
+        {
+            audioSource.PlayOneShot(clip);
+        }
     }
 }
