@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement name="Background" style="position: absolute; top: 0; right: 0; bottom: 0; left: 0; background-image: url(&quot;project://database/Assets/_2DAdventureGame/Tutorial_Demo/Demo_Art/Common/Background.png?fileID=2800000&amp;guid=45466ef8ed5f0fa4a94d9de87febf418&amp;type=3#Background&quot;); -unity-background-scale-mode: scale-and-crop;">
+        <ui:VisualElement name="Shade" style="position: absolute; top: 0; right: 0; bottom: 0; left: 0; background-color: rgba(10, 20, 30, 0.55);" />
+        <ui:VisualElement name="Portrait" style="position: absolute; top: 6%; right: 6%; bottom: 6%; width: 30%; background-image: url(&quot;project://database/Assets/_2DAdventureGame/Tutorial_Demo/Demo_Art/Common/CharacterScreen_Ducko.png?fileID=21300000&amp;guid=29b13209e9579d848b7533076646732d&amp;type=3#CharacterScreen_Ducko&quot;); -unity-background-scale-mode: scale-to-fit;" />
+        <ui:VisualElement name="Content" style="position: absolute; top: 10%; left: 5%; width: 58%; padding-top: 40px; padding-bottom: 50px; padding-left: 50px; padding-right: 50px; background-color: rgba(8, 14, 24, 0.82); border-top-left-radius: 24px; border-top-right-radius: 24px; border-bottom-left-radius: 24px; border-bottom-right-radius: 24px;">
+            <ui:Label name="Title" text="ROBOT REPAIR" style="font-size: 120px; -unity-font-style: bold; color: rgb(255, 214, 90); text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.85);" />
+            <ui:Label name="Goal" text="Полагодь усіх зламаних котлоботів шестернями — і не втрать усе здоров&apos;я." style="font-size: 44px; color: rgb(255, 255, 255); white-space: normal; margin-top: 20px; text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.85);" />
+            <ui:Label name="Controls" text="WASD / стрілки — рух · C — постріл · X — розмова" style="font-size: 36px; color: rgb(170, 225, 255); white-space: normal; margin-top: 30px; text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.85);" />
+            <ui:Button name="PlayButton" text="Грати (Enter)" style="font-size: 52px; -unity-font-style: bold; color: rgb(30, 40, 50); background-color: rgb(255, 214, 90); border-top-left-radius: 16px; border-top-right-radius: 16px; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; padding-top: 14px; padding-bottom: 14px; padding-left: 40px; padding-right: 40px; margin-top: 60px; align-self: flex-start;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
