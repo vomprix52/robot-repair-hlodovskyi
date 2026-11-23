@@ -6,21 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_2DAdventureGame/Scenes/Menu.unity
+    guid: cc95a6a45214cd740840a6179f378a2e
+  - enabled: 1
     path: Assets/_2DAdventureGame/Scenes/MyLevel.unity
-    guid: fa305dd53fbdd9b4c9c6015e8424277f
-  - enabled: 1
-    path: Assets/_2DAdventureGame/Tutorial_Demo/Demo_Scenes/Final/StartScreen.unity
-    guid: c069ff6195d8a694098e66b5217b2855
-  - enabled: 1
-    path: Assets/_2DAdventureGame/Tutorial_Demo/Demo_Scenes/Final/Ruby_Example_Scene.unity
-    guid: 0160895f6ec224ed19a633783a19c1f1
-  - enabled: 1
-    path: Assets/_2DAdventureGame/Tutorial_Demo/Demo_Scenes/Final/Ducko_Sample_Scene.unity
-    guid: ab87f43f1452713498275fad449caa73
-  - enabled: 1
-    path: Assets/_2DAdventureGame/Tutorial_Demo/Demo_Scenes/Final/SugarLand_Example_Scene.unity
-    guid: a86a62f58fa7649af9958b6c53bc8d28
-  - enabled: 1
+    guid: f7f0ce6a95bd4514c876ba5d321150f3
+  - enabled: 0
     path: Assets/_2DAdventureGame/Scenes/MainScene.unity
     guid: 7aaebdd0e6345964fb1808019a8f168d
   m_configObjects: {}
